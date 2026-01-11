@@ -50,13 +50,15 @@
         </svg>
         <span>Pastas</span>
       </a>
-      <a href="#" class="nav-item" data-page="screenshots">
+      <a href="#" class="nav-item" data-page="cleanup">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
-          <circle cx="9" cy="9" r="2"/>
-          <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+          <path d="M3 6h18"/>
+          <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+          <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+          <line x1="10" x2="10" y1="11" y2="17"/>
+          <line x1="14" x2="14" y1="11" y2="17"/>
         </svg>
-        <span>Screenshots</span>
+        <span>Limpeza</span>
       </a>
       <a href="#" class="nav-item" data-page="stats">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -131,15 +133,15 @@
       </div>
       <span>Pastas</span>
     </a>
-    <a href="#" class="mobile-nav-item" data-page="screenshots">
+    <a href="#" class="mobile-nav-item" data-page="cleanup">
       <div class="mobile-nav-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
-          <circle cx="9" cy="9" r="2"/>
-          <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+          <path d="M3 6h18"/>
+          <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+          <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
         </svg>
       </div>
-      <span>Screenshots</span>
+      <span>Limpeza</span>
     </a>
     <a href="#" class="mobile-nav-item" data-page="stats">
       <div class="mobile-nav-icon">
@@ -248,65 +250,32 @@
         </div>
       </div>
 
+      <!-- Organize Button -->
+      <div class="organize-action glass-panel">
+        <button class="organize-btn">
+          <div class="organize-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/>
+              <path d="m14 7 3 3"/>
+              <path d="M5 6v4"/>
+              <path d="M19 14v4"/>
+              <path d="M10 2v2"/>
+              <path d="M7 8H3"/>
+              <path d="M21 16h-4"/>
+              <path d="M11 3H9"/>
+            </svg>
+          </div>
+          <div class="organize-text">
+            <span class="organize-label">Organizar Screenshots</span>
+            <span class="organize-desc">Auto-organizar todos os screenshots pendentes</span>
+          </div>
+        </button>
+      </div>
+
       <!-- Main Content Grid -->
       <div class="content-grid">
-        <!-- Quick Actions -->
-        <div class="quick-actions glass-panel">
-          <h2 class="section-title">Ações Rápidas</h2>
-          <div class="actions-grid">
-            <button class="action-btn">
-              <div class="action-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                  <polyline points="17 8 12 3 7 8"/>
-                  <line x1="12" x2="12" y1="3" y2="15"/>
-                </svg>
-              </div>
-              <span class="action-label">Upload</span>
-              <span class="action-desc">Adicionar screenshots</span>
-            </button>
-            <button class="action-btn">
-              <div class="action-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/>
-                  <path d="m14 7 3 3"/>
-                  <path d="M5 6v4"/>
-                  <path d="M19 14v4"/>
-                  <path d="M10 2v2"/>
-                  <path d="M7 8H3"/>
-                  <path d="M21 16h-4"/>
-                  <path d="M11 3H9"/>
-                </svg>
-              </div>
-              <span class="action-label">Organizar</span>
-              <span class="action-desc">Auto-organizar tudo</span>
-            </button>
-            <button class="action-btn">
-              <div class="action-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
-                  <path d="M9 12l2 2 4-4"/>
-                </svg>
-              </div>
-              <span class="action-label">Sincronizar</span>
-              <span class="action-desc">Atualizar pastas</span>
-            </button>
-            <button class="action-btn">
-              <div class="action-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 6h18"/>
-                  <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
-                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
-                </svg>
-              </div>
-              <span class="action-label">Limpar</span>
-              <span class="action-desc">Remover duplicatas</span>
-            </button>
-          </div>
-        </div>
-
         <!-- Recent Activity -->
-        <div class="recent-activity glass-panel">
+        <div class="recent-activity glass-panel full-width">
           <div class="section-header">
             <h2 class="section-title">Atividade Recente</h2>
             <button class="view-all-btn">Ver tudo</button>
@@ -317,16 +286,6 @@
         </div>
       </div>
 
-      <!-- Folders Section -->
-      <div class="folders-section">
-        <div class="section-header">
-          <h2 class="section-title">Pastas por Aplicativo</h2>
-          <button class="view-all-btn">Ver todas</button>
-        </div>
-        <div class="folders-grid" id="foldersGrid">
-          <!-- Items populated by JS -->
-        </div>
-      </div>
     </div>
 
     <!-- Other pages placeholder -->
@@ -379,15 +338,119 @@
       </div>
     </div>
 
-    <div class="page" id="page-screenshots">
+    <div class="page" id="page-cleanup">
       <div class="page-header">
         <div class="page-header-text">
-          <h1 class="page-title">Screenshots</h1>
-          <p class="page-subtitle">Todos os seus screenshots</p>
+          <h1 class="page-title">Limpeza</h1>
+          <p class="page-subtitle">Gerencie e limpe seus screenshots</p>
         </div>
       </div>
-      <div class="screenshots-grid" id="screenshotsGrid">
-        <!-- Items populated by JS -->
+      
+      <!-- Cleanup Stats -->
+      <div class="cleanup-stats-grid">
+        <div class="cleanup-stat glass-panel">
+          <div class="cleanup-stat-icon warning">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+              <path d="M8 12h8"/>
+            </svg>
+          </div>
+          <div class="cleanup-stat-info">
+            <span class="cleanup-stat-value">12</span>
+            <span class="cleanup-stat-label">Duplicatas Encontradas</span>
+          </div>
+        </div>
+        
+        <div class="cleanup-stat glass-panel">
+          <div class="cleanup-stat-icon info">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="cleanup-stat-info">
+            <span class="cleanup-stat-value">8</span>
+            <span class="cleanup-stat-label">Antigos (30+ dias)</span>
+          </div>
+        </div>
+        
+        <div class="cleanup-stat glass-panel">
+          <div class="cleanup-stat-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            </svg>
+          </div>
+          <div class="cleanup-stat-info">
+            <span class="cleanup-stat-value">156 MB</span>
+            <span class="cleanup-stat-label">Espaço Recuperável</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cleanup Actions -->
+      <div class="cleanup-actions-grid">
+        <div class="cleanup-action-card glass-panel">
+          <div class="cleanup-action-header">
+            <div class="cleanup-action-icon warning">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+                <path d="M8 12h8"/>
+              </svg>
+            </div>
+            <h3 class="cleanup-action-title">Remover Duplicatas</h3>
+          </div>
+          <p class="cleanup-action-desc">Encontre e remova screenshots duplicados para liberar espaço.</p>
+          <button class="btn btn-secondary cleanup-action-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.3-4.3"/>
+            </svg>
+            Escanear Duplicatas
+          </button>
+        </div>
+        
+        <div class="cleanup-action-card glass-panel">
+          <div class="cleanup-action-header">
+            <div class="cleanup-action-icon info">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3 class="cleanup-action-title">Limpar Antigos</h3>
+          </div>
+          <p class="cleanup-action-desc">Remova screenshots com mais de 30 dias automaticamente.</p>
+          <button class="btn btn-secondary cleanup-action-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18"/>
+              <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+            </svg>
+            Limpar Antigos
+          </button>
+        </div>
+        
+        <div class="cleanup-action-card glass-panel">
+          <div class="cleanup-action-header">
+            <div class="cleanup-action-icon destructive">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 6h18"/>
+                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+                <line x1="10" x2="10" y1="11" y2="17"/>
+                <line x1="14" x2="14" y1="11" y2="17"/>
+              </svg>
+            </div>
+            <h3 class="cleanup-action-title">Esvaziar Lixeira</h3>
+          </div>
+          <p class="cleanup-action-desc">Exclua permanentemente todos os itens da lixeira.</p>
+          <button class="btn btn-danger cleanup-action-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18"/>
+              <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+            </svg>
+            Esvaziar Lixeira
+          </button>
+        </div>
       </div>
     </div>
 
@@ -495,26 +558,6 @@
       </div>
     </div>
 
-    <div class="page" id="page-upload">
-      <div class="page-header">
-        <div class="page-header-text">
-          <h1 class="page-title">Upload</h1>
-          <p class="page-subtitle">Adicionar novos screenshots</p>
-        </div>
-      </div>
-      <div class="upload-zone" id="uploadZone">
-        <div class="upload-icon">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="17 8 12 3 7 8"/>
-            <line x1="12" x2="12" y1="3" y2="15"/>
-          </svg>
-        </div>
-        <h3 class="upload-title">Arraste e solte seus screenshots aqui</h3>
-        <p class="upload-subtitle">ou clique para selecionar arquivos</p>
-        <input type="file" id="fileInput" multiple accept="image/*" hidden>
-      </div>
-    </div>
 
     <div class="page" id="page-settings">
       <div class="page-header">
@@ -766,13 +809,13 @@
           </svg>
           <span>Pastas</span>
         </a>
-        <a href="#" class="nav-item" data-page="screenshots">
+        <a href="#" class="nav-item" data-page="cleanup">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
-            <circle cx="9" cy="9" r="2"/>
-            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+            <path d="M3 6h18"/>
+            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
           </svg>
-          <span>Screenshots</span>
+          <span>Limpeza</span>
         </a>
         <a href="#" class="nav-item" data-page="stats">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -781,14 +824,6 @@
             <line x1="6" x2="6" y1="20" y2="16"/>
           </svg>
           <span>Estatísticas</span>
-        </a>
-        <a href="#" class="nav-item" data-page="upload">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="17 8 12 3 7 8"/>
-            <line x1="12" x2="12" y1="3" y2="15"/>
-          </svg>
-          <span>Upload</span>
         </a>
       </nav>
       <div class="menu-footer">
