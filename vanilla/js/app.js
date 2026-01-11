@@ -5,9 +5,6 @@ const closeMenuBtn = document.getElementById('closeMenuBtn');
 const activityList = document.getElementById('activityList');
 const foldersGrid = document.getElementById('foldersGrid');
 const foldersGridFull = document.getElementById('foldersGridFull');
-const screenshotsGrid = document.getElementById('screenshotsGrid');
-const uploadZone = document.getElementById('uploadZone');
-const fileInput = document.getElementById('fileInput');
 const folderSearchInput = document.getElementById('folderSearchInput');
 const viewToggle = document.getElementById('viewToggle');
 const foldersSubtitle = document.getElementById('foldersSubtitle');
@@ -25,11 +22,11 @@ const pages = document.querySelectorAll('.page');
 document.addEventListener('DOMContentLoaded', () => {
   renderActivityList();
   renderFolders();
-  renderScreenshots();
   setupNavigation();
   setupMobileMenu();
-  setupUploadZone();
   setupFoldersToolbar();
+  animateStorageBars();
+  updateFoldersSubtitle();
   animateStorageBars();
   updateFoldersSubtitle();
   
@@ -101,14 +98,13 @@ function renderFolders(filteredFolders = null) {
   `;
   
   // Dashboard folders (limited)
-  foldersGrid.innerHTML = mockFolders.slice(0, 6).map(folderHTML).join('');
+  if (foldersGrid) {
+    foldersGrid.innerHTML = mockFolders.slice(0, 6).map(folderHTML).join('');
+  }
   
   // Folders page (filtered or all)
-  foldersGridFull.innerHTML = foldersToRender.map(folderHTML).join('');
-  
-  // Show/hide empty state
-  if (foldersEmpty) {
-    foldersEmpty.style.display = foldersToRender.length === 0 ? 'flex' : 'none';
+  if (foldersGridFull) {
+    foldersGridFull.innerHTML = foldersToRender.map(folderHTML).join('');
   }
 }
 
@@ -160,30 +156,6 @@ function filterFolders() {
     folder.name.toLowerCase().includes(folderSearchQuery)
   );
   renderFolders(filtered);
-}
-
-// Render Screenshots
-function renderScreenshots() {
-  const html = mockScreenshots.map((screenshot, index) => `
-    <div class="screenshot-card" style="animation-delay: ${index * 0.05}s">
-      <div class="screenshot-preview">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
-          <circle cx="9" cy="9" r="2"/>
-          <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
-        </svg>
-      </div>
-      <div class="screenshot-info">
-        <p class="screenshot-filename">${screenshot.filename}</p>
-        <div class="screenshot-meta">
-          <span class="screenshot-app">${screenshot.appName}</span>
-          <span>${(screenshot.size / 1000).toFixed(0)} KB</span>
-        </div>
-      </div>
-    </div>
-  `).join('');
-  
-  screenshotsGrid.innerHTML = html;
 }
 
 // Setup Navigation
@@ -241,38 +213,6 @@ function setupMobileMenu() {
       menuOverlay.classList.remove('active');
     }
   });
-}
-
-// Setup Upload Zone
-function setupUploadZone() {
-  uploadZone.addEventListener('click', () => {
-    fileInput.click();
-  });
-  
-  uploadZone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    uploadZone.classList.add('drag-over');
-  });
-  
-  uploadZone.addEventListener('dragleave', () => {
-    uploadZone.classList.remove('drag-over');
-  });
-  
-  uploadZone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    uploadZone.classList.remove('drag-over');
-    const files = e.dataTransfer.files;
-    handleFiles(files);
-  });
-  
-  fileInput.addEventListener('change', (e) => {
-    handleFiles(e.target.files);
-  });
-}
-
-function handleFiles(files) {
-  console.log('Files uploaded:', files);
-  alert(`${files.length} arquivo(s) selecionado(s)!`);
 }
 
 // Animate storage bars
