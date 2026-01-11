@@ -2106,158 +2106,244 @@ body {
   grid-column: 1 / -1;
 }
 
-/* Cleanup Page Styles */
-.cleanup-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+/* Auto Destroy Page Styles */
+.autodestroy-master {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
   margin-bottom: 24px;
 }
 
-.cleanup-stat {
+.autodestroy-master-info {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 20px;
 }
 
-.cleanup-stat-icon {
-  width: 48px;
-  height: 48px;
+.autodestroy-master-icon {
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: hsla(175, 80%, 50%, 0.1);
-  border-radius: 12px;
-  color: var(--primary);
+  background: var(--gradient-primary);
+  border-radius: 14px;
+  color: var(--primary-foreground);
 }
 
-.cleanup-stat-icon.warning {
-  background: hsla(38, 92%, 50%, 0.1);
-  color: var(--warning);
-}
-
-.cleanup-stat-icon.info {
-  background: hsla(199, 89%, 48%, 0.1);
-  color: var(--info);
-}
-
-.cleanup-stat-icon.destructive {
-  background: hsla(0, 70%, 50%, 0.1);
-  color: var(--destructive);
-}
-
-.cleanup-stat-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.cleanup-stat-value {
-  font-size: 24px;
-  font-weight: 700;
+.autodestroy-master-text h3 {
+  font-size: 18px;
+  font-weight: 600;
   color: var(--foreground);
+  margin-bottom: 4px;
 }
 
-.cleanup-stat-label {
+.autodestroy-master-text p {
   font-size: 14px;
   color: var(--muted-foreground);
+  max-width: 400px;
 }
 
-.cleanup-actions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+.toggle-switch.large {
+  width: 56px;
+  height: 32px;
 }
 
-.cleanup-action-card {
+.toggle-switch.large .toggle-slider::before {
+  width: 26px;
+  height: 26px;
+}
+
+.toggle-switch.large input:checked + .toggle-slider::before {
+  transform: translateX(24px);
+}
+
+/* Add Folder Section */
+.autodestroy-add {
   padding: 24px;
+  margin-bottom: 24px;
+  display: none;
 }
 
-.cleanup-action-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
+.autodestroy-add.active {
+  display: block;
 }
 
-.cleanup-action-icon {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: hsla(175, 80%, 50%, 0.1);
-  border-radius: 10px;
-  color: var(--primary);
-}
-
-.cleanup-action-icon.warning {
-  background: hsla(38, 92%, 50%, 0.1);
-  color: var(--warning);
-}
-
-.cleanup-action-icon.info {
-  background: hsla(199, 89%, 48%, 0.1);
-  color: var(--info);
-}
-
-.cleanup-action-icon.destructive {
-  background: hsla(0, 70%, 50%, 0.1);
-  color: var(--destructive);
-}
-
-.cleanup-action-title {
+.autodestroy-section-title {
   font-size: 16px;
   font-weight: 600;
   color: var(--foreground);
-}
-
-.cleanup-action-desc {
-  font-size: 14px;
-  color: var(--muted-foreground);
   margin-bottom: 16px;
-  line-height: 1.5;
 }
 
-.cleanup-action-btn {
+.autodestroy-add-form {
+  display: grid;
+  grid-template-columns: 1fr 150px auto;
+  gap: 16px;
+  align-items: end;
+}
+
+@media (max-width: 768px) {
+  .autodestroy-add-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-select,
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  color: var(--foreground);
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.form-select:focus,
+.form-input:focus {
+  outline: none;
+  border-color: hsla(175, 80%, 50%, 0.5);
+}
+
+.form-select option {
+  background: var(--card);
+  color: var(--foreground);
+}
+
+/* Configured Folders */
+.autodestroy-folders {
+  padding: 24px;
+}
+
+.autodestroy-folders-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  width: 100%;
-  justify-content: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
 }
 
-/* Button styles for cleanup */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
+.autodestroy-folders-count {
   font-size: 14px;
-  font-weight: 500;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-secondary {
+  color: var(--muted-foreground);
   background: var(--secondary);
-  color: var(--secondary-foreground);
-  border: 1px solid var(--glass-border);
+  padding: 4px 12px;
+  border-radius: 20px;
 }
 
-.btn-secondary:hover {
-  background: hsla(222, 30%, 18%, 1);
+.autodestroy-folders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.autodestroy-folder-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.autodestroy-folder-item:hover {
   border-color: hsla(175, 80%, 50%, 0.3);
 }
 
-.btn-danger {
-  background: var(--destructive);
-  color: white;
+.autodestroy-folder-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 20px;
 }
 
-.btn-danger:hover {
-  background: hsl(0, 70%, 45%);
+.autodestroy-folder-info {
+  flex: 1;
+}
+
+.autodestroy-folder-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--foreground);
+  margin-bottom: 2px;
+}
+
+.autodestroy-folder-meta {
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+
+.autodestroy-folder-days {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.autodestroy-days-input {
+  width: 70px;
+  padding: 8px 12px;
+  background: var(--card);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--foreground);
+  font-size: 14px;
+  text-align: center;
+}
+
+.autodestroy-days-input:focus {
+  outline: none;
+  border-color: hsla(175, 80%, 50%, 0.5);
+}
+
+.autodestroy-days-label {
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+
+.autodestroy-folder-remove {
+  padding: 10px;
+  background: hsla(0, 70%, 50%, 0.1);
+  border: 1px solid hsla(0, 70%, 50%, 0.2);
+  border-radius: 8px;
+  color: var(--destructive);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.autodestroy-folder-remove:hover {
+  background: hsla(0, 70%, 50%, 0.2);
+}
+
+/* Empty State */
+.autodestroy-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--muted-foreground);
+}
+
+.autodestroy-empty svg {
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.autodestroy-empty p {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--foreground);
+  margin-bottom: 4px;
+}
+
+.autodestroy-empty span {
+  font-size: 14px;
 }

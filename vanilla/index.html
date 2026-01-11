@@ -50,15 +50,12 @@
         </svg>
         <span>Pastas</span>
       </a>
-      <a href="#" class="nav-item" data-page="cleanup">
+      <a href="#" class="nav-item" data-page="autodestroy">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 6h18"/>
-          <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
-          <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
-          <line x1="10" x2="10" y1="11" y2="17"/>
-          <line x1="14" x2="14" y1="11" y2="17"/>
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
         </svg>
-        <span>Limpeza</span>
+        <span>Auto Destruição</span>
       </a>
       <a href="#" class="nav-item" data-page="stats">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -133,15 +130,14 @@
       </div>
       <span>Pastas</span>
     </a>
-    <a href="#" class="mobile-nav-item" data-page="cleanup">
+    <a href="#" class="mobile-nav-item" data-page="autodestroy">
       <div class="mobile-nav-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 6h18"/>
-          <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
-          <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
         </svg>
       </div>
-      <span>Limpeza</span>
+      <span>Auto Dest.</span>
     </a>
     <a href="#" class="mobile-nav-item" data-page="stats">
       <div class="mobile-nav-icon">
@@ -338,118 +334,72 @@
       </div>
     </div>
 
-    <div class="page" id="page-cleanup">
+    <div class="page" id="page-autodestroy">
       <div class="page-header">
         <div class="page-header-text">
-          <h1 class="page-title">Limpeza</h1>
-          <p class="page-subtitle">Gerencie e limpe seus screenshots</p>
+          <h1 class="page-title">Auto Destruição</h1>
+          <p class="page-subtitle">Configure a exclusão automática de screenshots</p>
         </div>
       </div>
       
-      <!-- Cleanup Stats -->
-      <div class="cleanup-stats-grid">
-        <div class="cleanup-stat glass-panel">
-          <div class="cleanup-stat-icon warning">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
-              <path d="M8 12h8"/>
-            </svg>
-          </div>
-          <div class="cleanup-stat-info">
-            <span class="cleanup-stat-value">12</span>
-            <span class="cleanup-stat-label">Duplicatas Encontradas</span>
-          </div>
-        </div>
-        
-        <div class="cleanup-stat glass-panel">
-          <div class="cleanup-stat-icon info">
+      <!-- Master Toggle -->
+      <div class="autodestroy-master glass-panel">
+        <div class="autodestroy-master-info">
+          <div class="autodestroy-master-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"/>
               <polyline points="12 6 12 12 16 14"/>
             </svg>
           </div>
-          <div class="cleanup-stat-info">
-            <span class="cleanup-stat-value">8</span>
-            <span class="cleanup-stat-label">Antigos (30+ dias)</span>
+          <div class="autodestroy-master-text">
+            <h3>Auto Destruição</h3>
+            <p>Quando ativado, screenshots serão excluídos automaticamente após o prazo definido para cada pasta.</p>
           </div>
         </div>
-        
-        <div class="cleanup-stat glass-panel">
-          <div class="cleanup-stat-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+        <label class="toggle-switch large">
+          <input type="checkbox" id="autoDestroyToggle">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <!-- Add Folder Section -->
+      <div class="autodestroy-add glass-panel" id="autoDestroyAddSection">
+        <h3 class="autodestroy-section-title">Adicionar Pasta</h3>
+        <div class="autodestroy-add-form">
+          <div class="form-group">
+            <label for="folderSelect">Selecione uma pasta</label>
+            <select id="folderSelect" class="form-select">
+              <option value="">Escolha uma pasta...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="retentionDays">Prazo de retenção (dias)</label>
+            <input type="number" id="retentionDays" class="form-input" min="1" max="365" value="30" placeholder="Ex: 30">
+          </div>
+          <button class="btn btn-primary" id="addFolderBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14"/>
+              <path d="M5 12h14"/>
             </svg>
-          </div>
-          <div class="cleanup-stat-info">
-            <span class="cleanup-stat-value">156 MB</span>
-            <span class="cleanup-stat-label">Espaço Recuperável</span>
-          </div>
+            Adicionar Pasta
+          </button>
         </div>
       </div>
 
-      <!-- Cleanup Actions -->
-      <div class="cleanup-actions-grid">
-        <div class="cleanup-action-card glass-panel">
-          <div class="cleanup-action-header">
-            <div class="cleanup-action-icon warning">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
-                <path d="M8 12h8"/>
-              </svg>
-            </div>
-            <h3 class="cleanup-action-title">Remover Duplicatas</h3>
-          </div>
-          <p class="cleanup-action-desc">Encontre e remova screenshots duplicados para liberar espaço.</p>
-          <button class="btn btn-secondary cleanup-action-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"/>
-              <path d="m21 21-4.3-4.3"/>
-            </svg>
-            Escanear Duplicatas
-          </button>
+      <!-- Configured Folders List -->
+      <div class="autodestroy-folders glass-panel">
+        <div class="autodestroy-folders-header">
+          <h3 class="autodestroy-section-title">Pastas Configuradas</h3>
+          <span class="autodestroy-folders-count" id="configuredFoldersCount">0 pastas</span>
         </div>
-        
-        <div class="cleanup-action-card glass-panel">
-          <div class="cleanup-action-header">
-            <div class="cleanup-action-icon info">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12 6 12 12 16 14"/>
-              </svg>
-            </div>
-            <h3 class="cleanup-action-title">Limpar Antigos</h3>
-          </div>
-          <p class="cleanup-action-desc">Remova screenshots com mais de 30 dias automaticamente.</p>
-          <button class="btn btn-secondary cleanup-action-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 6h18"/>
-              <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+        <div class="autodestroy-folders-list" id="autoDestroyFoldersList">
+          <div class="autodestroy-empty" id="autoDestroyEmpty">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h16Z"/>
             </svg>
-            Limpar Antigos
-          </button>
-        </div>
-        
-        <div class="cleanup-action-card glass-panel">
-          <div class="cleanup-action-header">
-            <div class="cleanup-action-icon destructive">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 6h18"/>
-                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
-                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
-                <line x1="10" x2="10" y1="11" y2="17"/>
-                <line x1="14" x2="14" y1="11" y2="17"/>
-              </svg>
-            </div>
-            <h3 class="cleanup-action-title">Esvaziar Lixeira</h3>
+            <p>Nenhuma pasta configurada</p>
+            <span>Adicione pastas acima para configurar a auto destruição</span>
           </div>
-          <p class="cleanup-action-desc">Exclua permanentemente todos os itens da lixeira.</p>
-          <button class="btn btn-danger cleanup-action-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 6h18"/>
-              <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
-            </svg>
-            Esvaziar Lixeira
-          </button>
         </div>
       </div>
     </div>
